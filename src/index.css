@@ -1,0 +1,202 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Pacifico&family=Poppins:wght@300;500&display=swap");
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+:root {
+  --font-heading: "Lora", serif; /* For elegant headings */
+  --font-script: "Pacifico", cursive; /* For playful text */
+  --font-body: "Poppins", sans-serif; /* For UI and clean text */
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --background: #f6d5d4;
+  --foreground: #2b1e32;
+  --card: #d3b4c4;
+  --card-foreground: #2b1e32;
+  --primary: #8b6f89;
+  --primary-foreground: #ffffff;
+  --secondary: #da9181;
+  --secondary-foreground: #2b1e32;
+  --muted: #d3b4c4;
+  --muted-foreground: #2b1e32;
+  --accent: #da9181;
+  --accent-foreground: #ffffff;
+  --border: #8b6f89;
+  --input: #f6d5d4;
+  --ring: #8b6f89;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+.button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: 2px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: var(--accent);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.dark {
+  --background: #2b1e32;
+  --foreground: #f6d5d4;
+  --card: #8b6f89;
+  --card-foreground: #f6d5d4;
+  --primary: #d3b4c4;
+  --primary-foreground: #2b1e32;
+  --secondary: #f6d5d4;
+  --secondary-foreground: #2b1e32;
+  --muted: #8b6f89;
+  --muted-foreground: #d3b4c4;
+  --accent: #d3b4c4;
+  --accent-foreground: #2b1e32;
+  --border: #d3b4c4;
+  --input: #8b6f89;
+  --ring: #f6d5d4;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+.sidebar {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border-right: 2px solid var(--border);
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+}
+
+.logo {
+  font-family: var(--font-script);
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+p {
+  font-family: var(--font-body);
+}
