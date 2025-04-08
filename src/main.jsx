@@ -4,7 +4,9 @@ import App from "./App.jsx";
 import { ClerkProvider } from "@clerk/clerk-react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Stack } from "@mui/material";
+import { JamendoCallbackHandler } from "./components/JamendoCallbackHandler.jsx";
+import { Provider } from "react-redux";
+import { usePlayerStore } from "./redux/store.js";
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 if (!PUBLISHABLE_KEY) {
@@ -13,7 +15,7 @@ if (!PUBLISHABLE_KEY) {
 
 const theme = createTheme({
   palette: {
-    mode: "light", // or "dark" depending on preference
+    mode: "light",
     background: {
       default: "#f6d5d4",
       paper: "#d3b4c4",
@@ -100,6 +102,7 @@ export const globalStyles = (
         backgroundColor: theme.palette.background.default,
         color: theme.palette.secondary.main,
         fontFamily: theme.typography.fontFamily,
+        height: "100%",
       },
       ".button": {
         backgroundColor: theme.palette.primary.main,
@@ -130,15 +133,21 @@ export const globalStyles = (
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
-      {globalStyles}
-      <BrowserRouter>
-        <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl={"/"}>
-          <Routes>
-            <Route path="/" element={<App />} />
-          </Routes>
-        </ClerkProvider>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={usePlayerStore}>
+      <ThemeProvider theme={theme}>
+        {globalStyles}
+        <BrowserRouter>
+          <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl={"/"}>
+            <Routes>
+              <Route path="/" element={<App />} />
+              <Route
+                path="/jamendo-callback"
+                element={<JamendoCallbackHandler />}
+              />
+            </Routes>
+          </ClerkProvider>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   </StrictMode>
 );

@@ -3,7 +3,7 @@ import { Avatar, Box, Container, Typography } from "@mui/material";
 import React from "react";
 import { Logo } from "./components/ui/Logo";
 
-const ProtectedPage = () => {
+const Header = () => {
   return (
     <>
       <Container
@@ -47,4 +47,4 @@ const ProtectedPage = () => {
   );
 };
 
-export default ProtectedPage;
+export default Header;
