@@ -132,13 +132,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       {globalStyles}
-      <BrowserRouter>
-        <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl={"/"}>
-          <Routes>
-            <Route path="/" element={<App />} />
-          </Routes>
-        </ClerkProvider>
-      </BrowserRouter>
+      <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl={"/"}>
+        <App />
+      </ClerkProvider>
     </ThemeProvider>
   </StrictMode>
 );
