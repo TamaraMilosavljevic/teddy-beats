@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Box,
   Stack,
@@ -11,36 +10,12 @@ import {
 } from "@mui/material";
 import { IconPlayerPlayFilled, IconClock } from "@tabler/icons-react";
 import { usePlayerStore } from "../store/playerStore";
+import { useFetchTracks } from "../hooks/useFetchTacks";
 
 export const TrackList = () => {
-  const { setTrack, setIsPlaying } = usePlayerStore();
+  const { allTracks, setTrack, setIsPlaying } = usePlayerStore();
 
-  const tracks = [
-    {
-      id: "1",
-      name: "Bohemian Rhapsody",
-      artist_name: "Queen",
-      duration: 354,
-      image:
-        "https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?w=400&q=80",
-    },
-    {
-      id: "2",
-      name: "Stairway to Heaven",
-      artist_name: "Led Zeppelin",
-      duration: 482,
-      image:
-        "https://images.unsplash.com/photo-1511735111819-9a3f7709049c?w=400&q=80",
-    },
-    {
-      id: "3",
-      name: "Hotel California",
-      artist_name: "Eagles",
-      duration: 391,
-      image:
-        "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&q=80",
-    },
-  ];
+  useFetchTracks();
 
   const handlePlay = (track) => {
     setTrack(track);
@@ -101,7 +76,7 @@ export const TrackList = () => {
         </Box>
 
         <Stack spacing={1.5}>
-          {tracks.map((track, index) => (
+          {allTracks.map((track, index) => (
             <Paper
               key={track.id}
               elevation={0}
