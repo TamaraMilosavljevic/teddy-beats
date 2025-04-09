@@ -56,14 +56,20 @@ export const TrackList = () => {
   return (
     <Box
       sx={{
+        display: "flex",
+        flex: 1,
+        flexDirection: "column",
         p: 4,
         minHeight: "100vh",
+        minWidth: "100vh",
         bgcolor: "background.paper",
         background: "linear-gradient(to bottom, #111827, #000000)",
         color: "white",
+        height: "100%",
+        width: "100%",
       }}
     >
-      <Container maxWidth="lg">
+      <Container width="100%">
         <Typography variant="h4" fontWeight="bold" mb={4}>
           Popular Tracks
         </Typography>
@@ -80,13 +86,13 @@ export const TrackList = () => {
         >
           <Grid container spacing={2} sx={{ fontSize: "0.875rem" }}>
             <Grid item xs={0.5}>
-              #
+              <Typography>#</Typography>
             </Grid>
             <Grid item xs={4}>
-              TITLE
+              <Typography>TITLE</Typography>
             </Grid>
             <Grid item xs={3}>
-              ARTIST
+              <Typography>ARTIST</Typography>
             </Grid>
             <Grid item xs={4} display="flex" justifyContent="flex-end">
               <IconClock size={16} />
@@ -157,7 +163,9 @@ export const TrackList = () => {
                       variant="rounded"
                       sx={{ width: 48, height: 48 }}
                     />
-                    <Typography fontWeight={500}>{track.name}</Typography>
+                    <Typography fontWeight={500} color="grey.500">
+                      {track.name}
+                    </Typography>
                   </Stack>
                 </Grid>
 

@@ -11,17 +11,37 @@ const App = () => {
   return (
     <Stack
       sx={{
-        backgroundColor: (theme) => theme.palette.primary.bgColor,
         display: "flex",
-        flexDirection: "column",
         flex: 1,
+        flexDirection: "column",
+        p: 0,
+        m: 0,
+        minHeight: "100vh",
+        minWidth: "100vh",
+        bgcolor: "background.paper",
+        background: "linear-gradient(to bottom, #111827, #000000)",
+        color: "white",
+        height: "100%",
         width: "100%",
-        justifyContent: "center",
-        alignItems: "center",
       }}
     >
       <Router>
-        <div className="min-h-screen bg-black">
+        <div
+          style={{
+            display: "flex",
+            flex: 1,
+            flexDirection: "column",
+            p: 0,
+            m: 0,
+            minHeight: "100vh",
+            minWidth: "100vh",
+            bgcolor: "background.paper",
+            background: "linear-gradient(to bottom, #111827, #000000)",
+            color: "white",
+            height: "100%",
+            width: "100%",
+          }}
+        >
           <Routes>
             <Route path="/" element={<TrackList />} />
           </Routes>
