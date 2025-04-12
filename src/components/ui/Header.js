@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header>
       <div>
-        <img src="logo"></img>
+        <img src="logo" />
       </div>
     </header>
   );

@@ -57,10 +57,12 @@ const theme = createTheme({
       fontStyle: "normal",
     },
     h3: {
-      fontFamily: `${"Playwrite IN Guides, cursive"}`,
+      fontFamily: `${"Spicy Rice, static"}`,
       fontWeight: 400,
       fontStyle: "normal",
+      fontSize: "1.2rem",
     },
+
     body1: {
       fontFamily: `${"Poppins, sans-serif"}`,
     },
@@ -100,6 +102,8 @@ export const globalStyles = (
         backgroundColor: theme.palette.background.default,
         color: theme.palette.secondary.main,
         fontFamily: theme.typography.fontFamily,
+        margin: "0px",
+        overflow: "hidden",
       },
       ".button": {
         backgroundColor: theme.palette.primary.main,
@@ -132,13 +136,9 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
       {globalStyles}
-      <BrowserRouter>
-        <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl={"/"}>
-          <Routes>
-            <Route path="/" element={<App />} />
-          </Routes>
-        </ClerkProvider>
-      </BrowserRouter>
+      <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl={"/"}>
+        <App />
+      </ClerkProvider>
     </ThemeProvider>
   </StrictMode>
 );
